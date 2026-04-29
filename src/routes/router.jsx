@@ -53,7 +53,6 @@
 
 // export default router;
 
-
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
@@ -66,7 +65,7 @@ import SignUp from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
 import PrivateRoute from "../provider/PrivateRoute";
 import MyGroups from "../pages/MyGroups";
-
+import UpdateGroup from "../pages/UpdateGroup";
 
 const router = createBrowserRouter([
   {
@@ -93,11 +92,11 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "group/:id",                                          // ✅ new
+        path: "group/:id", // ✅ new
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/groups/${params.id}`),      // ✅ fetch single group
+          fetch(`http://localhost:3000/groups/${params.id}`), // ✅ fetch single group
         element: (
-          <PrivateRoute>                                           
+          <PrivateRoute>
             <GroupDetails />
           </PrivateRoute>
         ),
@@ -105,11 +104,21 @@ const router = createBrowserRouter([
       {
         path: "myGroups",
         element: (
-          <PrivateRoute>      
+          <PrivateRoute>
             <MyGroups />
           </PrivateRoute>
         ),
-      }
+      },
+      {
+        path: "updateGroup/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/groups/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <UpdateGroup />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
