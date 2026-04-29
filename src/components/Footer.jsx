@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#7DA78C] text-base-content border-t border-base-300">
+    <footer className="bg-[#E6EEC9] text-base-content border-t border-base-300">
       <div className="max-w-7xl mx-auto px-4 py-8 md:py-12">
         {/* Main grid: stacks on mobile, 3 columns on md+ */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

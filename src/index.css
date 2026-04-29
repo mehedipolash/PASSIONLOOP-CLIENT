@@ -1,1 +1,56 @@
 @import "tailwindcss";
+
+
+/* ----- Reusable Button Styles (central) ----- */
+
+/* Primary button – dark teal */
+.btn-primary-custom {
+  @apply px-6 py-2 rounded-lg font-semibold transition-all duration-200;
+  background-color: #2C5F6A;
+  color: white;
+}
+.btn-primary-custom:hover {
+  background-color: #1E424A;
+}
+
+/* Secondary button – warm sand */
+.btn-secondary-custom {
+  @apply px-5 py-2 rounded-md font-medium transition-all duration-200;
+  background-color: #D9C58B;
+  color: #2D2D2D;
+}
+.btn-secondary-custom:hover {
+  background-color: #C4AD6A;
+}
+
+/* Success / Confirm button – forest green */
+.btn-success-custom {
+  @apply px-6 py-2 rounded-lg font-semibold transition-all duration-200;
+  background-color: #5A8F4C;
+  color: white;
+}
+.btn-success-custom:hover {
+  background-color: #457338;
+}
+
+/* Danger / Delete button – dusty rose */
+.btn-danger-custom {
+  @apply px-5 py-2 rounded-md font-medium transition-all duration-200;
+  background-color: #C1666B;
+  color: white;
+}
+.btn-danger-custom:hover {
+  background-color: #A84D52;
+}
+
+/* Outline / Ghost variant (optional) */
+.btn-outline-custom {
+  @apply px-6 py-2 rounded-lg font-semibold transition-all duration-200 border-2;
+  border-color: #2C5F6A;
+  color: #2C5F6A;
+  background-color: transparent;
+}
+.btn-outline-custom:hover {
+  background-color: #2C5F6A;
+  color: white;
+}

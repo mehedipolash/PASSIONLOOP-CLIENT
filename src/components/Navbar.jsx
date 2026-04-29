@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router";
 
@@ -24,7 +19,7 @@ const Navbar = () => {
     isActive ? "text-primary font-semibold" : "hover:text-primary";
 
   return (
-    <nav className="bg-[#C2D099] shadow-md px-4 py-3">
+    <nav className="bg-[#35858E] shadow-md px-4 py-3">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between relative">
         
         {/* Logo - always left */}
@@ -35,7 +30,7 @@ const Navbar = () => {
         {/* Desktop centering container (hidden on mobile) */}
         <div className="hidden lg:flex lg:items-center lg:gap-6 absolute left-1/2 transform -translate-x-1/2">
           <NavLink to="/" className={navLinkClass}>Home</NavLink>
-          <NavLink to="/groups" className={navLinkClass}>All Groups</NavLink>
+          <NavLink to="/allGroups" className={navLinkClass}>All Groups</NavLink>
           <NavLink to="/createGroup" className={navLinkClass}>Create Group</NavLink>
           <NavLink to="/myGroups" className={navLinkClass}>My Groups</NavLink>
         </div>
@@ -87,7 +82,7 @@ const Navbar = () => {
           `}
         >
           <NavLink to="/" onClick={() => setMenuOpen(false)} className={navLinkClass}>Home</NavLink>
-          <NavLink to="/groups" onClick={() => setMenuOpen(false)} className={navLinkClass}>All Groups</NavLink>
+          <NavLink to="/allGroups" onClick={() => setMenuOpen(false)} className={navLinkClass}>All Groups</NavLink>
           <NavLink to="/createGroup" onClick={() => setMenuOpen(false)} className={navLinkClass}>Create Group</NavLink>
           <NavLink to="/myGroups" onClick={() => setMenuOpen(false)} className={navLinkClass}>My Groups</NavLink>
 

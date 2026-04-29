@@ -1,11 +1,11 @@
 import React from 'react';
 
-const AllGroups = () => {
+const AuthLayout = () => {
     return (
         <div>
-            all groups page
+            auth layout
         </div>
     );
 };
 
-export default AllGroups;
+export default AuthLayout;
