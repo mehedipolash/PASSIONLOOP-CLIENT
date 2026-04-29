@@ -62,7 +62,7 @@ const GroupCard = ({ group }) => {
             to={`/group/${_id}`}
             className="btn btn-secondary-custom text-sm px-4 py-1"
           >
-            See More →
+            Group Details →
           </Link>
         </div>
       </div>

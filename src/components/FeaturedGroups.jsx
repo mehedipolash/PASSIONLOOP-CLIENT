@@ -61,10 +61,10 @@ const FeaturedGroups = ({ groups = [] }) => {
                   </div>
 
                   <Link
-                    to={`/groups/${group._id}`}
+                    to={`/group/${group._id}`}
                     className="btn btn-outline btn-info bg-[#7DA78C] rounded-md p-1 btn-sm w-full mt-2"
                   >
-                    View Group
+                    Group Details 
                   </Link>
                 </div>
               </div>

@@ -1,34 +1,48 @@
-import React from "react";
-import Swal from "sweetalert2";
 
-const user = null; // Replace with actual auth user
+
+
+
+
+import { useContext } from "react";
+import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const CreateGroup = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleCreateGroup = (e) => {
     e.preventDefault();
     const form = e.target;
     const groupData = new FormData(form);
     const newGroup = Object.fromEntries(groupData.entries());
-    console.log(newGroup);
-
-    //  send to backend
 
     fetch("http://localhost:3000/groups", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newGroup),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
           Swal.fire({
-            title: "Groups added successfully",
+            title: "Group created successfully!",
             icon: "success",
-            draggable: true,
+            timer: 1500,
+            showConfirmButton: false,
           });
+          form.reset();
+          navigate("/allGroups");
         }
+      })
+      .catch((err) => {
+        console.error(err);
+        Swal.fire({
+          title: "Failed to create group.",
+          icon: "error",
+          confirmButtonText: "Try again",
+        });
       });
   };
 
@@ -48,6 +62,7 @@ const CreateGroup = () => {
       {/* Form */}
       <form onSubmit={handleCreateGroup} className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
           {/* Group Name */}
           <fieldset className="fieldset bg-base-200 border border-base-300 rounded-box p-4">
             <label className="label font-medium">Group Name</label>
@@ -63,10 +78,8 @@ const CreateGroup = () => {
           {/* Hobby Category */}
           <fieldset className="fieldset bg-base-200 border border-base-300 rounded-box p-4">
             <label className="label font-medium">Hobby Category</label>
-            <select name="hobbyCategory" className="select w-full" required>
-              <option value="" disabled selected>
-                Select a category
-              </option>
+            <select name="hobbyCategory" className="select w-full" required defaultValue="">
+              <option value="" disabled>Select a category</option>
               <option>Drawing & Painting</option>
               <option>Photography</option>
               <option>Video Gaming</option>
@@ -136,7 +149,7 @@ const CreateGroup = () => {
               type="text"
               name="userName"
               className="input w-full bg-base-300 cursor-not-allowed"
-              value={user?.displayName || "John Doe"}
+              value={user?.displayName || ""}
               readOnly
             />
           </fieldset>
@@ -148,13 +161,13 @@ const CreateGroup = () => {
               type="email"
               name="userEmail"
               className="input w-full bg-base-300 cursor-not-allowed"
-              value={user?.email || "john@example.com"}
+              value={user?.email || ""}
               readOnly
             />
           </fieldset>
         </div>
 
-        {/* Description - full width */}
+        {/* Description */}
         <fieldset className="fieldset bg-base-200 border border-base-300 rounded-box p-4 mt-6">
           <label className="label font-medium">Description</label>
           <textarea
