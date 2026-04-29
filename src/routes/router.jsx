@@ -29,11 +29,13 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import CreateGroup from "../pages/CreateGroup";
 import AllGroups from "../pages/AllGroups";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,

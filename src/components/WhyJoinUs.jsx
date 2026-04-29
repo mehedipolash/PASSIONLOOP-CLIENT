@@ -5,7 +5,7 @@ const features = [
   { icon: "🤝", title: "Meet Like-Minded People", desc: "Find and connect with people who share the same hobbies and interests as you." },
   { icon: "📅", title: "Organize Meetups", desc: "Schedule group meetups, events, and activities with ease." },
   { icon: "🌍", title: "Local & Online Groups", desc: "Join groups in your city or participate in online communities from anywhere." },
-  { icon: "🚀", title: "Grow Your Skills", desc: "Learn from others, share your knowledge, and grow together as a community." },
+  { icon: "🚀", title: "Grow Your Skills", desc: "Share your knowledge, and grow together as a community." },
 ];
 
 const WhyJoinUs = () => {

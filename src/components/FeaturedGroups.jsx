@@ -62,7 +62,7 @@ const FeaturedGroups = ({ groups = [] }) => {
 
                   <Link
                     to={`/groups/${group._id}`}
-                    className="btn btn-primary btn-sm w-full mt-2"
+                    className="btn btn-outline btn-info bg-[#7DA78C] rounded-md p-1 btn-sm w-full mt-2"
                   >
                     View Group
                   </Link>
@@ -74,7 +74,7 @@ const FeaturedGroups = ({ groups = [] }) => {
       )}
 
       <div className="text-center mt-10">
-        <Link to="/allGroups" className="btn btn-outline btn-primary-custom px-10">
+        <Link to="/allGroups" className="btn btn-secondary-custom btn-info px-10">
           See All Groups
         </Link>
       </div>
