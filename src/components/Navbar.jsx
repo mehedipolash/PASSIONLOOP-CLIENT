@@ -19,7 +19,7 @@ const Navbar = () => {
     isActive ? "text-primary font-semibold" : "hover:text-primary";
 
   return (
-    <nav className="bg-[#35858E] shadow-md px-4 py-3">
+    <nav className="bg-[#E6EEC9] shadow-md px-4 py-3">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between relative">
         
         {/* Logo - always left */}
