@@ -1,24 +1,88 @@
+// // import { createBrowserRouter } from "react-router";
+// // import MainLayout from "../layouts/MainLayout";
+// // import Home from "../pages/Home";
+// // import CreateGroup from "../pages/CreateGroup";
+// // import AllGroups from "../pages/AllGroups";
+// // import ErrorPage from "../pages/ErrorPage";
+// // import AuthLayout from "../layouts/AuthLayout";
+// // import SignUp from "../pages/SignUp";
+// // import SignIn from "../pages/SignIn";
+// // import PrivateRoute from "../provider/PrivateRoute";
+
+// // const router = createBrowserRouter([
+// //   {
+// //     path: "/",
+// //     Component: MainLayout,
+// //     errorElement: <ErrorPage></ErrorPage>,
+// //     children: [
+// //       {
+// //         index: true,
+// //         loader: () => fetch("https://passion-loop-server.vercel.app//groups"),
+// //         Component: Home,
+// //       },
+// //       {
+// //         path: "createGroup",
+// //         element: (
+// //           <PrivateRoute>
+// //             <CreateGroup />
+// //           </PrivateRoute>
+// //         ),
+// //       },
+// //       {
+// //         path: "allGroups",
+// //         loader: () => fetch("https://passion-loop-server.vercel.app//groups"),
+// //         Component: AllGroups,
+// //       },
+// //     ],
+// //   },
+// //   {
+// //     path: "/auth",
+// //     Component: AuthLayout,
+// //     children: [
+// //       {
+// //         path: "/auth/signup",
+// //         Component: SignUp,
+// //       },
+// //       {
+// //         path: "/auth/signin",
+// //         Component: SignIn,
+// //       },
+// //     ],
+// //   },
+// // ]);
+
+// // export default router;
+
 // import { createBrowserRouter } from "react-router";
 // import MainLayout from "../layouts/MainLayout";
 // import Home from "../pages/Home";
 // import CreateGroup from "../pages/CreateGroup";
 // import AllGroups from "../pages/AllGroups";
+// import GroupDetails from "../pages/GroupDetails";
 // import ErrorPage from "../pages/ErrorPage";
 // import AuthLayout from "../layouts/AuthLayout";
 // import SignUp from "../pages/SignUp";
 // import SignIn from "../pages/SignIn";
 // import PrivateRoute from "../provider/PrivateRoute";
+// import MyGroups from "../pages/MyGroups";
+// import UpdateGroup from "../pages/UpdateGroup";
+// import ComingSoon from "../pages/ComingSoon";
 
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
 //     Component: MainLayout,
-//     errorElement: <ErrorPage></ErrorPage>,
+//     errorElement: <ErrorPage />,
 //     children: [
 //       {
 //         index: true,
-//         loader: () => fetch("http://localhost:3000/groups"),
+//         loader: () => fetch("https://passion-loop-server.vercel.app//groups"),
 //         Component: Home,
+//       },
+//       {
+//         path: "allGroups",
+//         loader: () => fetch("https://passion-loop-server.vercel.app//groups"),
+//         Component: AllGroups,
 //       },
 //       {
 //         path: "createGroup",
@@ -29,29 +93,51 @@
 //         ),
 //       },
 //       {
-//         path: "allGroups",
-//         loader: () => fetch("http://localhost:3000/groups"),
-//         Component: AllGroups,
+//         path: "group/:id", // ✅ new
+//         loader: ({ params }) =>
+//           fetch(`https://passion-loop-server.vercel.app//groups/${params.id}`), // ✅ fetch single group
+//         element: (
+//           <PrivateRoute>
+//             <GroupDetails />
+//           </PrivateRoute>
+//         ),
+//       },
+//       {
+//         path: "myGroups",
+//         element: (
+//           <PrivateRoute>
+//             <MyGroups />
+//           </PrivateRoute>
+//         ),
+//       },
+//       {
+//         path: "updateGroup/:id",
+//         loader: ({ params }) =>
+//           fetch(`https://passion-loop-server.vercel.app//groups/${params.id}`),
+//         element: (
+//           <PrivateRoute>
+//             <UpdateGroup />
+//           </PrivateRoute>
+//         ),
 //       },
 //     ],
+//   },
+//   {
+//       path: "/comingSoon",
+//       Component: ComingSoon,
 //   },
 //   {
 //     path: "/auth",
 //     Component: AuthLayout,
 //     children: [
-//       {
-//         path: "/auth/signup",
-//         Component: SignUp,
-//       },
-//       {
-//         path: "/auth/signin",
-//         Component: SignIn,
-//       },
+//       { path: "/auth/signup", Component: SignUp },
+//       { path: "/auth/signin", Component: SignIn },
 //     ],
 //   },
 // ]);
 
 // export default router;
+
 
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
@@ -76,12 +162,14 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/groups"),
+        // ✅ Fixed: Removed double slashes
+        loader: () => fetch("https://passion-loop-server.vercel.app/groups"),
         Component: Home,
       },
       {
         path: "allGroups",
-        loader: () => fetch("http://localhost:3000/groups"),
+        // ✅ Fixed: Removed double slashes
+        loader: () => fetch("https://passion-loop-server.vercel.app/groups"),
         Component: AllGroups,
       },
       {
@@ -93,9 +181,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "group/:id", // ✅ new
+        path: "group/:id",
+        // ✅ Fixed: Removed double slashes
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/groups/${params.id}`), // ✅ fetch single group
+          fetch(`https://passion-loop-server.vercel.app/groups/${params.id}`),
         element: (
           <PrivateRoute>
             <GroupDetails />
@@ -112,8 +201,9 @@ const router = createBrowserRouter([
       },
       {
         path: "updateGroup/:id",
+        // ✅ Fixed: Removed double slashes
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/groups/${params.id}`),
+          fetch(`https://passion-loop-server.vercel.app/groups/${params.id}`),
         element: (
           <PrivateRoute>
             <UpdateGroup />
@@ -123,15 +213,16 @@ const router = createBrowserRouter([
     ],
   },
   {
-      path: "/comingSoon",
-      Component: ComingSoon,
+    path: "/comingSoon",
+    Component: ComingSoon,
   },
   {
     path: "/auth",
     Component: AuthLayout,
     children: [
-      { path: "/auth/signup", Component: SignUp },
-      { path: "/auth/signin", Component: SignIn },
+      // ✅ Tip: Use relative paths for children
+      { path: "signup", Component: SignUp },
+      { path: "signin", Component: SignIn },
     ],
   },
 ]);

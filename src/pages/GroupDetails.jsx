@@ -38,7 +38,7 @@ const GroupDetails = () => {
       joinedAt: new Date().toISOString(),
     };
 
-    fetch("http://localhost:3000/joins", {
+    fetch("https://passion-loop-server.vercel.app//joins", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(joinData),
@@ -64,7 +64,7 @@ const GroupDetails = () => {
         }
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
         Swal.fire({
           icon: "error",
           title: "Failed to join group.",

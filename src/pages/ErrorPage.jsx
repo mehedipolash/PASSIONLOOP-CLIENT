@@ -45,8 +45,8 @@ const ErrorPage = () => {
 
       {/* Button */}
       <Slide direction="up" triggerOnce delay={300}>
-        <Link to="/" className="btn btn-primary px-8">
-          Back to Home
+        <Link to="/" className="btn btn-primary px-8 border rounded-full bg btn-success-custom">
+          ⬅️Back to Home
         </Link>
       </Slide>
 

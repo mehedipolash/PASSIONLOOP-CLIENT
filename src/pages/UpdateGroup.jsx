@@ -25,7 +25,7 @@ const UpdateGroup = () => {
       description: form.description.value,
     };
 
-    fetch(`http://localhost:3000/groups/${group._id}`, {
+    fetch(`https://passion-loop-server.vercel.app/groups/${group._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedGroup),
@@ -51,7 +51,7 @@ const UpdateGroup = () => {
         }
       })
       .catch((err) => {
-        console.error(err);
+        
         Swal.fire({
           title: "Failed to update group.",
           icon: "error",

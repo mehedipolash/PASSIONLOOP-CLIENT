@@ -32,7 +32,7 @@ const SignIn = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+       
         let errorMessage = "Something went wrong. Please try again.";
         if (
           error.code === "auth/user-not-found" ||
@@ -77,7 +77,7 @@ const SignIn = () => {
           lastSignInTime: user?.metadata?.lastSignInTime,
         };
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://passion-loop-server.vercel.app/users", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userProfile),
@@ -94,13 +94,13 @@ const SignIn = () => {
             navigate(from, { replace: true });
           })
           .catch((err) => {
-            console.error(err);
-            // Still navigate even if DB save fails
+            
+            
             navigate(from, { replace: true });
           });
       })
       .catch((error) => {
-        console.log(error);
+        
         toast.error("Google sign in failed. Please try again.");
       });
   };
