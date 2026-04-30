@@ -195,7 +195,7 @@ const SignIn = () => {
         {/* Register link */}
         <p className="text-center text-xs mt-4 text-base-content/60">
           Don't have an account?{" "}
-          <Link to="/auth/signup" className="text-primary font-semibold hover:underline">
+          <Link to="/auth/signup" className="text-blue-600 font-semibold hover:underline text-[15px]">
             Register
           </Link>
         </p>

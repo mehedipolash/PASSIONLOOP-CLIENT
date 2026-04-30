@@ -66,6 +66,7 @@ import SignIn from "../pages/SignIn";
 import PrivateRoute from "../provider/PrivateRoute";
 import MyGroups from "../pages/MyGroups";
 import UpdateGroup from "../pages/UpdateGroup";
+import ComingSoon from "../pages/ComingSoon";
 
 const router = createBrowserRouter([
   {
@@ -120,6 +121,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+      path: "/comingSoon",
+      Component: ComingSoon,
   },
   {
     path: "/auth",

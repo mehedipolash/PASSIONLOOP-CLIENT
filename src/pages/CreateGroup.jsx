@@ -445,7 +445,7 @@ const CreateGroup = () => {
             <Zoom triggerOnce delay={400}>
               <button
                 type="submit"
-                className="w-full p-3 rounded-xl bg-blue-200 text-primary-content font-bold text-base hover:opacity-90 active:scale-95 transition-all duration-150"
+                className="w-full p-3 rounded-xl bg-blue-200 text-primary-content font-bold text-base btn btn-success-custom text-lg transition hover:bg-blue-300"
               >
                 🚀 Launch Group
               </button>
