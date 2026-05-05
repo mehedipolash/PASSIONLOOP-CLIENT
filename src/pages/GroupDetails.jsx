@@ -38,7 +38,7 @@ const GroupDetails = () => {
       joinedAt: new Date().toISOString(),
     };
 
-    fetch("https://passion-loop-server.vercel.app//joins", {
+    fetch("https://passion-loop-server.vercel.app/joins", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(joinData),
