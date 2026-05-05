@@ -1,5 +1,3 @@
-
-
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
@@ -14,6 +12,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import MyGroups from "../pages/MyGroups";
 import UpdateGroup from "../pages/UpdateGroup";
 import ComingSoon from "../pages/ComingSoon";
+import MyJoinedGroups from "../pages/MyJoinedGroups";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +67,15 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateGroup />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "myJoinedGroups",
+        element: (
+          <PrivateRoute>
+            <MyJoinedGroups />
           </PrivateRoute>
         ),
       },
